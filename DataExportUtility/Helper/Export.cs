@@ -31,7 +31,7 @@ public static class Export
         Console.WriteLine("Data exported to Excel successfully!");
     }
 
-    public static void ExportPdfToFile(DataTable dataTable)
+    public static void ExportToPdfFile(DataTable dataTable)
     {
         string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
         string filePath = $@"D:\Practice\Practice\data-export-utility\File_{timestamp}.pdf"; // Using timestamp in the file name
@@ -77,5 +77,31 @@ public static class Export
         Console.WriteLine($"PDF generated at: {filePath}");
     }
 
+  public static void ExportToCSVFile(DataTable dataTable)
+        {
+            string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+            string filePath = $@"D:\Practice\Practice\data-export-utility\File_{timestamp}.txt"; // Using timestamp in the file name
 
+            using (StreamWriter writer = new StreamWriter(filePath))
+            {
+                // Write headers
+                foreach (DataColumn column in dataTable.Columns)
+                {
+                    writer.Write($"{column.ColumnName},");
+                }
+                writer.WriteLine(); // New line after headers
+
+                // Write data
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    foreach (object cellValue in row.ItemArray)
+                    {
+                        writer.Write($"{cellValue},");
+                    }
+                    writer.WriteLine(); // New line for each row
+                }
+            }
+
+            Console.WriteLine($"CSV file generated at: {filePath}");
+        }
 }
