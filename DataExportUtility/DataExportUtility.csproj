@@ -9,8 +9,11 @@
 
   <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.102.1" />
-    <PackageReference Include="EPPlus" Version="7.0.4" />
+    <PackageReference Include="DinkToPdf" Version="1.0.8" />
     <PackageReference Include="mysql.data" Version="8.2.0" />
+    <PackageReference Include="PdfSharp" Version="6.0.0" />
+    <PackageReference Include="itext7" Version="7.1.16" />
+
   </ItemGroup>
 
 </Project>

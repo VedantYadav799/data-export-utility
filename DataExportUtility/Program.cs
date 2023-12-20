@@ -10,7 +10,7 @@ using ClosedXML.Excel;
         {
 
             DataTable table= MyDAL.GetData();
-            Export.ExportToExcelFile(table);
-            Console.WriteLine("Data exported to Excel successfully!");
+            Export.ExportPdfToFile(table);
+          
         }
     }
